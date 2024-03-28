@@ -5,10 +5,10 @@ import * as jobsAPI from '../../utilities/jobs-api';
 
 const CreateJobForm = ({ setJobListings, onClose }) => {
     const [formData, setFormData] = useState({
-        title: '',
-        company: '',
-        location: '',
-        description: ''
+        title: 'Sample Title',
+        company: 'Sample Company',
+        location: 'Sample Location',
+        description: 'Sample Description'
     });
 
     function handleChange(e) {
@@ -34,14 +34,6 @@ const CreateJobForm = ({ setJobListings, onClose }) => {
             console.log('Creating job...');
             await sendRequest('/api/jobs', 'POST', formData);
             console.log('Job created successfully');
-
-            // Fetch the updated job listings after creating the job
-            const updatedJobs = await fetchUpdatedJobListings();
-            setJobListings(updatedJobs);
-
-            onClose();
-            // setShowCreateForm(false);
-
         } catch (error) {
             console.error('Error creating job:', error);
         }

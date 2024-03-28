@@ -1,5 +1,3 @@
-// ShowUserPage.js
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AboutMe from '../../components/AboutMe/AboutMe';
@@ -32,33 +30,35 @@ export default function ShowUserPage({ user, setUser }) {
         }
     };
 
-    console.log('showUser:', showUser);
-    console.log('isFriendAdded:', isFriendAdded);
 
     return (
         <main className={styles.ShowUserPage}>
             <NavBar user={user} setUser={setUser} />
+            <SideBar user={user} setUser={setUser} />
+
             <div className={styles.content}>
-                <SideBar user={user} setUser={setUser} />
-                {showUser && (
-                    <div className={styles.profileDetailsContainer}>
-                        <AboutMe user={showUser} setUser={setShowUser} />
-                        <div className={styles.proDetailsAndButtonContainer}>
-                            <ProDetails user={showUser} setUser={setShowUser} />
-                            <div className={styles.friendButton}>
-                                {!isFriendAdded && (
-                                    <button onClick={addFriend}>Add Friend</button>
-                                )}
-                            </div>
-                        </div>
+            <div className={styles.subContent}>
+            {showUser && (
+                <div className={styles.testHolder}>
+                    <AboutMe user={showUser} setUser={setShowUser} />
+                    <div className={styles.friendZone}>
+                        {!isFriendAdded && (
+                        <button className={styles.friendButton} onClick={addFriend}>Add Friend</button>
+                    )}
                     </div>
-                )}
-            </div>
-            {showFriendAddedPopup && (
+                    {showFriendAddedPopup && (
                 <div className={styles.popup}>
                     Friend added successfully!
                 </div>
             )}
+
+                    <ProDetails user={showUser} setUser={setShowUser} />
+
+                </div>
+            )}
+            </div>
+            </div>
+
         </main>
     );
 }

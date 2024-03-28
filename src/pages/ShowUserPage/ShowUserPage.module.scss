@@ -1,39 +1,19 @@
-// ShowUserPage.module.scss
-
-.proDetailsAndButtonContainer {
-    display: flex;
-    align-items: flex-start; 
+div {
+    color: white;
+    font-size: x-large;
 }
 .ShowUserPage {
+    margin: 2rem;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    padding: 20px; 
-}
-
-.content {
-    display: flex;
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: flex-start; 
-    margin-top: 20px; 
-}
-
-.SideBar {
-    
-    width: 150px; 
-    margin-left: auto; 
-    margin-right: 20px;
-}
-
-.friendButton {
-    margin-top: 20px; 
-}
-
-.ProDetails {
-    margin-bottom: 20px;
-}
-
-.profileDetailsContainer {
-    margin-top: 20px; 
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    label {
+        border: solid 1px white;
+        padding: 1rem;
+        margin: .5rem;
+        border-radius: 1vmin;
+        background-color: rgb(22, 102, 197);
+        color: white;
+    }
 }
