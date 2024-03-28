@@ -1,3 +1,5 @@
+// ShowUserPage.js
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AboutMe from '../../components/AboutMe/AboutMe';
@@ -36,17 +38,22 @@ export default function ShowUserPage({ user, setUser }) {
     return (
         <main className={styles.ShowUserPage}>
             <NavBar user={user} setUser={setUser} />
-            <SideBar user={user} setUser={setUser} />
-            {showUser && (
-                <>
-                    <AboutMe user={showUser} setUser={setShowUser} />
-                    <ProDetails user={showUser} setUser={setShowUser} />
-                    < div className={styles.friendButton}>
-                        {!isFriendAdded && (
-                        <button onClick={addFriend}>Add Friend</button>
-                    )}</div>
-                </>
-            )}
+            <div className={styles.content}>
+                <SideBar user={user} setUser={setUser} />
+                {showUser && (
+                    <div className={styles.profileDetailsContainer}>
+                        <AboutMe user={showUser} setUser={setShowUser} />
+                        <div className={styles.proDetailsAndButtonContainer}>
+                            <ProDetails user={showUser} setUser={setShowUser} />
+                            <div className={styles.friendButton}>
+                                {!isFriendAdded && (
+                                    <button onClick={addFriend}>Add Friend</button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
             {showFriendAddedPopup && (
                 <div className={styles.popup}>
                     Friend added successfully!

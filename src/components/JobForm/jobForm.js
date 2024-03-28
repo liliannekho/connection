@@ -5,10 +5,10 @@ import * as jobsAPI from '../../utilities/jobs-api';
 
 const CreateJobForm = ({ setJobListings, onClose }) => {
     const [formData, setFormData] = useState({
-        title: 'Sample Title',
-        company: 'Sample Company',
-        location: 'Sample Location',
-        description: 'Sample Description'
+        title: '',
+        company: '',
+        location: '',
+        description: ''
     });
 
     function handleChange(e) {
